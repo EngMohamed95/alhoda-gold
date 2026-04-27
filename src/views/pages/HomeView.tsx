@@ -70,16 +70,16 @@ export default function HomeView() {
       <div className="bg-gold-900/20 border-y border-gold-900/50 py-4 overflow-hidden flex whitespace-nowrap">
         <motion.div 
           animate={{ x: isRtl ? ['0%', '100%'] : ['0%', '-100%'] }}
-          transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
+          transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
           className="flex gap-12 items-center px-6"
         >
           {Array(8).fill(null).map((_, i) => (
             <React.Fragment key={i}>
-              <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">PREMIUM QUALITY</span>
+              <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee1')}</span>
               <Gem className="w-4 h-4 text-gold-600/50" />
-              <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">24K PURE GOLD</span>
+              <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee2')}</span>
               <Gem className="w-4 h-4 text-gold-600/50" />
-              <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">CERTIFIED BULLION</span>
+              <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee3')}</span>
               <Gem className="w-4 h-4 text-gold-600/50" />
             </React.Fragment>
           ))}
@@ -113,9 +113,9 @@ export default function HomeView() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { img: 'https://images.unsplash.com/photo-1515562141207-7a8efdb2ce24?auto=format&fit=crop&q=80&w=1000', title: 'Royal Heritage' },
-              { img: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=1000', title: 'Modern Elegance' },
-              { img: 'https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?auto=format&fit=crop&q=80&w=1000', title: 'Pure Bullion' },
+              { img: 'https://images.unsplash.com/photo-1599643478524-fb66f7f6a738?auto=format&fit=crop&q=80&w=1000', title: t('hero.col1') },
+              { img: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=1000', title: t('hero.col2') },
+              { img: 'https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?auto=format&fit=crop&q=80&w=1000', title: t('hero.col3') },
             ].map((col, i) => (
               <motion.div 
                 key={i}
