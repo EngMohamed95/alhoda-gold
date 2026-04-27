@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Almarai", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Almarai", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-gold-50: #fbf8eb;
+  --color-gold-100: #f4ecce;
+  --color-gold-200: #ead79f;
+  --color-gold-300: #dfba62;
+  --color-gold-400: #d6a133;
+  --color-gold-500: #c98a23;
+  --color-gold-600: #ae6a1a;
+  --color-gold-700: #8b4c18;
+  --color-gold-800: #743e19;
+  --color-gold-900: #613317;
+  
+  --color-premium-black: #0a0a0a;
+  --color-premium-gray: #1a1a1a;
+}
+
+body {
+  font-family: "Almarai", sans-serif;
+  background-color: var(--color-premium-black);
+  color: var(--color-gold-50);
+}
+
+.serif-text {
+  font-family: "Almarai", sans-serif;
+}
+
+.gold-gradient {
+  background: linear-gradient(to right, var(--color-gold-300), var(--color-gold-500), var(--color-gold-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

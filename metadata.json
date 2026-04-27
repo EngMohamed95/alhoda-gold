@@ -1,0 +1,6 @@
+{
+  "name": "Al Hoda Gold Trading",
+  "description": "Luxurious bilingual website & dashboard for Al Hoda Gold Trading.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}
