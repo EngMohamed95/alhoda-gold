@@ -34,7 +34,7 @@ export interface AppState {
 export const useAppState = create<AppState>()(
   persist(
     (set, get) => ({
-      language: 'en',
+      language: 'ar',
       setLanguage: (lang) => set({ language: lang }),
       currentUser: null,
       users: [
