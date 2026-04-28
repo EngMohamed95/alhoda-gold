@@ -175,15 +175,13 @@ export default function HomeView() {
       </section>
 
       {/* Marquee Banner */}
-      <div className="bg-gold-900/20 border-y border-gold-900/50 py-4 overflow-hidden flex">
-        <motion.div 
-          animate={{ x: isRtl ? ['-50%', '0%'] : ['0%', '-50%'] }}
-          transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
-          className="flex gap-12 items-center whitespace-nowrap"
+      <div className="bg-gold-900/20 border-y border-gold-900/50 py-4 overflow-hidden flex w-full">
+        <div 
+          className={`flex gap-12 items-center whitespace-nowrap ${isRtl ? 'animate-marqueeRtl' : 'animate-marquee'}`}
         >
           {/* First copy */}
           <div className="flex gap-12 items-center px-6 flex-shrink-0">
-            {Array(5).fill(null).map((_, i) => (
+            {Array(10).fill(null).map((_, i) => (
               <React.Fragment key={i}>
                 <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee1')}</span>
                 <Gem className="w-4 h-4 text-gold-600/50" />
@@ -197,8 +195,8 @@ export default function HomeView() {
           
           {/* Second identical copy for seamless looping */}
           <div className="flex gap-12 items-center px-6 flex-shrink-0">
-            {Array(5).fill(null).map((_, i) => (
-              <React.Fragment key={i + 5}>
+            {Array(10).fill(null).map((_, i) => (
+              <React.Fragment key={i + 10}>
                 <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee1')}</span>
                 <Gem className="w-4 h-4 text-gold-600/50" />
                 <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee2')}</span>
@@ -208,7 +206,7 @@ export default function HomeView() {
               </React.Fragment>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Featured Collections Video/Image grid */}
