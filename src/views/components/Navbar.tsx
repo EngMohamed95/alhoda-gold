@@ -29,7 +29,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-6 rtl:space-x-reverse">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -43,7 +43,7 @@ export default function Navbar() {
             {currentUser ? (
               <Link
                 to="/admin"
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-gold-600 bg-gold-900/20 hover:bg-gold-600 hover:text-premium-black text-gold-300 transition-all font-bold text-sm shadow-md"
+                className="flex items-center gap-2 px-5 py-2 rounded-full border border-gold-600 bg-gold-900/20 hover:bg-gold-600 hover:text-premium-black text-gold-200 transition-all font-bold text-sm shadow-md"
               >
                 <img src={currentUser.avatar} alt="Avatar" className="w-6 h-6 rounded-full" />
                 {t('nav.dashboard')}
@@ -51,7 +51,7 @@ export default function Navbar() {
             ) : (
               <Link
                 to="/login"
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-gold-700/50 hover:bg-gold-900/20 text-gold-200 transition-colors text-sm tracking-widest font-bold uppercase"
+                className="flex items-center gap-2 px-5 py-2 rounded-full border border-gold-600/50 bg-gold-900/10 hover:bg-gold-900/30 hover:border-gold-500 text-gold-200 hover:text-gold-100 transition-colors text-sm tracking-widest font-bold uppercase"
               >
                 <UserIcon size={16} />
                 {t('nav.login')}
@@ -60,7 +60,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleLanguage}
-              className="px-4 py-2 rounded-full border border-gold-700/50 hover:bg-gold-900/20 text-gold-200 text-xs font-black transition-all"
+              className="px-5 py-2 rounded-full border border-gold-600/50 bg-gold-900/10 hover:bg-gold-900/30 hover:border-gold-500 text-gold-200 hover:text-gold-100 font-bold text-sm transition-all"
             >
               {language === 'en' ? 'عربى' : 'ENG'}
             </button>

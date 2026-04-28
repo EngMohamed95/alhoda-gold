@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, ChevronRight, ScanSearch, Gem, ShieldCheck, MapPin, Mail, Phone } from 'lucide-react';
+import { ArrowRight, ChevronRight, ScanSearch, Gem, ShieldCheck, MapPin, Mail, Phone, Search as SearchIcon, Camera, XCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useAppController } from '../../controllers/appController';
+import { useAppController, useBullionController } from '../../controllers/appController';
 
 export default function HomeView() {
   const { t } = useTranslation();
   const { isRtl } = useAppController();
+  const { searchBullion } = useBullionController();
+  
+  const [searchTerm, setSearchTerm] = useState('');
+  const [hasSearched, setHasSearched] = useState(false);
+
+  const result = searchBullion(searchTerm);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      setHasSearched(true);
+    }
+  };
 
   return (
     <div className="bg-premium-black text-gold-50">
       
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden py-20 lg:py-0">
         <div className="absolute inset-0">
           <motion.img 
             initial={{ scale: 1.1 }}
@@ -28,40 +41,131 @@ export default function HomeView() {
           <div className="absolute inset-0 bg-gradient-to-t from-premium-black via-transparent to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-24 pb-12 lg:py-0">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className={`max-w-3xl ${isRtl ? 'ml-auto' : ''}`}
+            className={`max-w-2xl lg:order-1 lg:ml-auto lg:mr-0 ${isRtl ? 'lg:text-right' : 'lg:text-left'}`}
           >
-            <h2 className="text-gold-300 text-sm md:text-base tracking-[0.2em] font-bold mb-4 flex items-center gap-4">
+            <h2 className="text-gold-300 text-sm md:text-base tracking-[0.2em] font-bold mb-4 flex items-center gap-4 justify-center lg:justify-start">
               <span className="w-12 h-[1px] bg-gold-400"></span>
               {t('hero.subtitle')}
             </h2>
-            <h1 className="serif-text text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[1.1] text-white">
+            <h1 className="serif-text text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] text-white">
               {t('hero.title').split(' ').map((word, i) => (
                  <span key={i} className={i === 1 || i === 2 ? 'gold-gradient font-black' : ''}>{word} </span>
               ))}
             </h1>
-            <p className="text-lg md:text-xl text-gold-100/80 mb-10 max-w-2xl font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-gold-100/80 mb-10 max-w-xl font-light leading-relaxed mx-auto lg:mx-0">
               {t('hero.desc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link 
-                to="/search" 
+                to="/services" 
                 className="bg-gold-500 hover:bg-gold-400 text-premium-black px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group shadow-[0_0_40px_rgba(201,138,35,0.3)] hover:shadow-[0_0_60px_rgba(201,138,35,0.5)]"
               >
-                {t('search.title')}
+                {t('hero.explore')}
                 <ArrowRight className={`w-5 h-5 transition-transform ${isRtl ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
               </Link>
               <Link 
-                to="/services" 
+                to="/contact" 
                 className="border border-gold-600 hover:bg-gold-900/40 text-gold-200 px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center backdrop-blur-sm"
               >
-                {t('hero.explore')}
+                {t('contact.title')}
               </Link>
             </div>
+          </motion.div>
+
+          {/* Verification Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className={`border border-gold-500/20 bg-premium-black/40 p-8 rounded-3xl backdrop-blur-xl shadow-[0_0_50px_rgba(201,138,35,0.15)] max-w-lg mx-auto lg:mx-0 lg:order-2 lg:mr-auto lg:ml-0 text-center group hover:border-gold-500/40 transition-all duration-500 w-full`}
+          >
+            <div className="relative mx-auto w-16 h-16 mb-4 flex items-center justify-center rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 group-hover:scale-110 transition-all duration-500">
+              <ScanSearch className="w-8 h-8" />
+              <div className="absolute inset-0 rounded-full bg-gold-500/20 animate-ping opacity-20"></div>
+            </div>
+            <h2 className="serif-text text-xl md:text-2xl font-bold mb-2 text-gold-200">{t('search.title')}</h2>
+            <p className="text-gold-100/60 mb-6 text-xs font-light max-w-xs mx-auto">{t('search.subtitle')}</p>
+
+            <form onSubmit={handleSearch} className="mb-4">
+              <div className="flex flex-col gap-3 relative">
+                <div className="relative flex-grow">
+                  <SearchIcon className={`absolute top-1/2 -translate-y-1/2 text-gold-600 w-5 h-5 ${isRtl ? 'right-4' : 'left-4'}`} />
+                  <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                      setHasSearched(false);
+                    }}
+                    placeholder={t('search.placeholder')}
+                    className={`w-full bg-premium-black/60 border border-gold-900/50 rounded-full py-3 ${isRtl ? 'pr-12 pl-4' : 'pl-12 pr-4'} text-gold-50 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-all text-sm font-mono placeholder:font-sans placeholder:text-gold-100/40`}
+                  />
+                </div>
+                
+                <div className="flex gap-2">
+                  <button
+                    type="submit"
+                    className="bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-premium-black px-6 py-3 rounded-full font-bold transition-all whitespace-nowrap flex-grow text-sm shadow-[0_0_20px_rgba(201,138,35,0.2)] hover:shadow-[0_0_30px_rgba(201,138,35,0.4)]"
+                  >
+                    {t('search.button')}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => alert('Image scanning requires camera access to use Gemini API.')}
+                    className="bg-premium-black/40 border border-gold-700/50 hover:border-gold-400 text-gold-300 px-3 py-3 rounded-full font-bold transition-all flex items-center justify-center group"
+                    title={t('search.scanBtn')}
+                  >
+                    <Camera className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            {hasSearched && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                className="overflow-hidden mt-4"
+              >
+                {result ? (
+                  <div className="bg-green-950/40 border border-green-800/40 rounded-2xl p-4 text-right">
+                    <div className="flex items-center gap-2 mb-4 text-green-400 justify-end">
+                      <h3 className="text-sm font-bold font-sans">{t('search.results.found')}</h3>
+                      <ShieldCheck className="w-5 h-5" />
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4 text-xs">
+                      <div className="space-y-1">
+                        <p className="text-gold-100/50 uppercase tracking-wider font-bold">رقم السبيكة</p>
+                        <p className="font-mono text-gold-100">{result.serial}</p>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-gold-100/50 uppercase tracking-wider font-bold">{t('search.results.weight')}</p>
+                        <p className="font-mono text-gold-200 font-bold">{result.weight}g</p>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-gold-100/50 uppercase tracking-wider font-bold">{t('search.results.purity')}</p>
+                        <p className="font-mono text-gold-200 font-bold">{result.purity}</p>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-gold-100/50 uppercase tracking-wider font-bold">{t('search.results.issueDate')}</p>
+                        <p className="font-mono text-gold-100">{result.issueDate}</p>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bg-red-950/40 border border-red-900/40 rounded-2xl p-4 text-center">
+                    <XCircle className="w-8 h-8 text-red-500 mx-auto mb-2 opacity-80" />
+                    <p className="text-red-200/90 font-light text-xs">{t('search.results.notFound')}</p>
+                  </div>
+                )}
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </section>
@@ -258,28 +362,7 @@ export default function HomeView() {
         </div>
       </section>
 
-      {/* Quick Access/Search Prompt */}
-      <section className="py-24 bg-gradient-to-b from-premium-gray to-premium-black relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="border border-gold-800 bg-premium-black/50 p-12 rounded-3xl backdrop-blur-sm shadow-2xl"
-          >
-            <ScanSearch className="w-16 h-16 text-gold-400 mx-auto mb-6" />
-            <h2 className="serif-text text-3xl md:text-4xl font-bold mb-4 text-gold-200">{t('search.title')}</h2>
-            <p className="text-gold-100/70 mb-8 max-w-xl mx-auto font-light leading-relaxed">{t('search.subtitle')}</p>
-            <Link 
-              to="/search" 
-              className="inline-flex bg-gold-600 hover:bg-gold-500 text-premium-black px-8 py-4 rounded-full font-bold transition-all items-center gap-2"
-            >
-              {isRtl ? 'اضغط هنا للتحقق' : 'Click Here to Verify'}
-              <ChevronRight className={`w-5 h-5 ${isRtl ? 'rotate-180' : ''}`} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* Contact Excerpt */}
       <section className="py-24 bg-premium-black border-t border-gold-900/30">
