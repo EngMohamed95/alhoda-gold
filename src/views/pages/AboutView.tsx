@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { useAppController } from '../../controllers/appController';
 import { ShieldCheck, TrendingUp, Award } from 'lucide-react';
+import img4 from '../../../4.webp';
 
 export default function AboutView() {
   const { t } = useTranslation();
@@ -41,14 +42,13 @@ export default function AboutView() {
           >
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop" 
+                src={img4} 
                 alt="Craftsmanship" 
-                referrerPolicy="no-referrer"
                 className="rounded-t-full rounded-b-3xl w-full max-w-md mx-auto aspect-[3/4] object-cover border-4 border-premium-black ring-1 ring-gold-800 shadow-[0_0_50px_rgba(201,138,35,0.15)]"
               />
               <div className="absolute -bottom-8 -right-8 (isRtl ? '-left-8' : '-right-8') bg-premium-black p-6 rounded-2xl border border-gold-800 hidden md:block">
                 <p className="text-gold-300 font-bold text-5xl serif-text">26+</p>
-                <p className="text-gold-100/70 text-sm tracking-widest uppercase mt-1 font-bold">Years of Excellence</p>
+                <p className="text-gold-100/70 text-sm tracking-widest uppercase mt-1 font-bold">{isRtl ? 'عاماً من التميز' : 'Years of Excellence'}</p>
               </div>
             </div>
           </motion.div>

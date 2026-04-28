@@ -74,11 +74,11 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="text-sm font-bold uppercase tracking-widest text-gold-200">{t('footer.contact')}</h4>
             <div className="space-y-3 text-sm font-light">
-              <a href="tel:+201000000000" className="flex items-center gap-3 text-gold-100/70 hover:text-gold-300 transition-colors">
+              <a href="tel:+201143885630" className="flex items-center gap-3 text-gold-100/70 hover:text-gold-300 transition-colors">
                 <Phone size={18} />
                 <span>{t('footer.call')}</span>
               </a>
-              <a href="https://wa.me/201000000000" className="flex items-center gap-3 text-gold-100/70 hover:text-gold-300 transition-colors">
+              <a href="https://wa.me/201143885630" className="flex items-center gap-3 text-gold-100/70 hover:text-gold-300 transition-colors">
                 <Mail size={18} />
                 <span>{t('footer.whatsapp')}</span>
               </a>

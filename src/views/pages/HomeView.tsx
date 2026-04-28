@@ -8,6 +8,7 @@ import coverImg from '../../../كوفرر.webp';
 import img1 from '../../../1.webp';
 import img2 from '../../../2.webp';
 import img3 from '../../../3.webp';
+import img4 from '../../../4.webp';
 
 export default function HomeView() {
   const { t } = useTranslation();
@@ -174,22 +175,39 @@ export default function HomeView() {
       </section>
 
       {/* Marquee Banner */}
-      <div className="bg-gold-900/20 border-y border-gold-900/50 py-4 overflow-hidden flex whitespace-nowrap">
+      <div className="bg-gold-900/20 border-y border-gold-900/50 py-4 overflow-hidden flex">
         <motion.div 
-          animate={{ x: isRtl ? ['0%', '100%'] : ['0%', '-100%'] }}
-          transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
-          className="flex gap-12 items-center px-6"
+          animate={{ x: isRtl ? ['-50%', '0%'] : ['0%', '-50%'] }}
+          transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
+          className="flex gap-12 items-center whitespace-nowrap"
         >
-          {Array(8).fill(null).map((_, i) => (
-            <React.Fragment key={i}>
-              <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee1')}</span>
-              <Gem className="w-4 h-4 text-gold-600/50" />
-              <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee2')}</span>
-              <Gem className="w-4 h-4 text-gold-600/50" />
-              <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee3')}</span>
-              <Gem className="w-4 h-4 text-gold-600/50" />
-            </React.Fragment>
-          ))}
+          {/* First copy */}
+          <div className="flex gap-12 items-center px-6 flex-shrink-0">
+            {Array(5).fill(null).map((_, i) => (
+              <React.Fragment key={i}>
+                <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee1')}</span>
+                <Gem className="w-4 h-4 text-gold-600/50" />
+                <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee2')}</span>
+                <Gem className="w-4 h-4 text-gold-600/50" />
+                <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee3')}</span>
+                <Gem className="w-4 h-4 text-gold-600/50" />
+              </React.Fragment>
+            ))}
+          </div>
+          
+          {/* Second identical copy for seamless looping */}
+          <div className="flex gap-12 items-center px-6 flex-shrink-0">
+            {Array(5).fill(null).map((_, i) => (
+              <React.Fragment key={i + 5}>
+                <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee1')}</span>
+                <Gem className="w-4 h-4 text-gold-600/50" />
+                <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee2')}</span>
+                <Gem className="w-4 h-4 text-gold-600/50" />
+                <span className="text-gold-200/50 uppercase tracking-[0.3em] font-bold text-sm">{t('hero.marquee3')}</span>
+                <Gem className="w-4 h-4 text-gold-600/50" />
+              </React.Fragment>
+            ))}
+          </div>
         </motion.div>
       </div>
 
@@ -301,14 +319,13 @@ export default function HomeView() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 relative">
               <img 
-                src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop" 
+                src={img4} 
                 alt="Craftsmanship" 
-                referrerPolicy="no-referrer"
                 className="rounded-t-full rounded-b-3xl w-full max-w-md mx-auto aspect-[3/4] object-cover border-4 border-premium-black ring-1 ring-gold-800 shadow-[0_0_50px_rgba(201,138,35,0.15)]"
               />
               <div className="absolute -bottom-8 -right-8 (isRtl ? '-left-8' : '-right-8') bg-premium-black p-6 rounded-2xl border border-gold-800 hidden md:block">
                 <p className="text-gold-300 font-bold text-5xl serif-text">26+</p>
-                <p className="text-gold-100/70 text-sm tracking-widest uppercase mt-1 font-bold">Years of Excellence</p>
+                <p className="text-gold-100/70 text-sm tracking-widest uppercase mt-1 font-bold">{isRtl ? 'عاماً من التميز' : 'Years of Excellence'}</p>
               </div>
             </div>
             <div className="order-1 lg:order-2 space-y-6">
@@ -375,9 +392,9 @@ export default function HomeView() {
               <h2 className="serif-text text-4xl font-bold text-gold-200 mb-6">{t('contact.title')}</h2>
               <p className="text-gold-100/70 font-light leading-relaxed mb-8">{t('contact.journeyDesc')}</p>
               <div className="space-y-4">
-                <a href="tel:+201000000000" className="flex items-center gap-4 text-gold-200 hover:text-gold-400 transition-colors">
+                <a href="tel:+201143885630" className="flex items-center gap-4 text-gold-200 hover:text-gold-400 transition-colors">
                   <div className="w-10 h-10 rounded-full bg-gold-900/30 flex items-center justify-center"><Phone size={18} /></div>
-                  <span className="font-mono">+20 100 000 0000</span>
+                  <span className="font-mono" dir="ltr">011 43885630</span>
                 </a>
                 <div className="flex items-center gap-4 text-gold-200">
                   <div className="w-10 h-10 rounded-full bg-gold-900/30 flex items-center justify-center"><MapPin size={18} /></div>
@@ -394,9 +411,8 @@ export default function HomeView() {
             <div>
               <div className="relative group overflow-hidden rounded-3xl border border-gold-800 shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop" 
+                  src={img4} 
                   alt="Contact" 
-                  referrerPolicy="no-referrer"
                   className="w-full aspect-[4/3] object-cover opacity-90 transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-premium-black via-transparent to-transparent opacity-60"></div>

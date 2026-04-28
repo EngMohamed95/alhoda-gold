@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { Gem, ShieldCheck, Diamond, Sparkles, Crown } from 'lucide-react';
+import img5 from '../../../5.webp';
 
 export default function ServicesView() {
   const { t } = useTranslation();
@@ -55,9 +56,8 @@ export default function ServicesView() {
             >
               <div className="relative group overflow-hidden rounded-3xl border border-gold-800 shadow-[0_0_50px_rgba(201,138,35,0.15)]">
                 <img 
-                  src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=1000" 
+                  src={img5} 
                   alt="Jewelry" 
-                  referrerPolicy="no-referrer"
                   className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>

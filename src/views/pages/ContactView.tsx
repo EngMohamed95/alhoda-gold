@@ -56,7 +56,7 @@ export default function ContactView() {
               className="space-y-6 flex flex-col justify-center"
             >
               <a 
-                href="tel:+201000000000" 
+                href="tel:+201143885630" 
                 className="flex items-center gap-6 p-6 rounded-2xl bg-premium-black border border-gold-900/40 hover:border-gold-500/50 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full bg-gold-900/20 flex flex-shrink-0 items-center justify-center text-gold-400 group-hover:bg-gold-500 group-hover:text-premium-black transition-colors">
@@ -64,12 +64,12 @@ export default function ContactView() {
                 </div>
                 <div>
                   <p className="text-xs text-gold-100/50 uppercase tracking-widest font-bold mb-1">{t('contact.callText')}</p>
-                  <p className="font-mono text-gold-200 text-lg">+20 100 000 0000</p>
+                  <p className="font-mono text-gold-200 text-lg" dir="ltr">011 43885630</p>
                 </div>
               </a>
 
               <a 
-                href="https://wa.me/201000000000" 
+                href="https://wa.me/201143885630" 
                 className="flex items-center gap-6 p-6 rounded-2xl bg-premium-black border border-gold-900/40 hover:border-gold-500/50 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full bg-green-900/20 flex flex-shrink-0 items-center justify-center text-green-400 group-hover:bg-green-500 group-hover:text-premium-black transition-colors">
@@ -77,7 +77,7 @@ export default function ContactView() {
                 </div>
                 <div>
                   <p className="text-xs text-gold-100/50 uppercase tracking-widest font-bold mb-1">{t('contact.waText')}</p>
-                  <p className="font-mono text-gold-200 text-lg">+20 100 000 0000</p>
+                  <p className="font-mono text-gold-200 text-lg" dir="ltr">011 43885630</p>
                 </div>
               </a>
 
