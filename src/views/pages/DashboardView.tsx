@@ -30,6 +30,31 @@ export default function DashboardView() {
   const [addedMessage, setAddedMessage] = useState(false);
   const [userAddedMessage, setUserAddedMessage] = useState(false);
 
+  React.useEffect(() => {
+    let timeoutId: any;
+    const resetTimer = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        logout();
+      }, 15 * 60 * 1000); // Auto logout after 15 minutes of inactivity
+    };
+
+    window.addEventListener('mousemove', resetTimer);
+    window.addEventListener('keydown', resetTimer);
+    window.addEventListener('scroll', resetTimer);
+    window.addEventListener('click', resetTimer);
+
+    resetTimer();
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('mousemove', resetTimer);
+      window.removeEventListener('keydown', resetTimer);
+      window.removeEventListener('scroll', resetTimer);
+      window.removeEventListener('click', resetTimer);
+    };
+  }, [logout]);
+
   // Fallback to avoid crashes if somehow user is not defined during transitions
   if (!currentUser) return null;
 

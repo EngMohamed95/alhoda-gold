@@ -91,7 +91,12 @@ export const useAppState = create<AppState>()(
       }))
     }),
     {
-      name: 'alhoda-storage'
+      name: 'alhoda-storage',
+      partialize: (state) => ({
+        language: state.language,
+        bullions: state.bullions,
+        users: state.users
+      })
     }
   )
 );
