@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Phone, MapPin, Mail, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAppController } from '../../controllers/appController';
+import logoImg from '../../logoelhoda.png';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -13,9 +14,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4 md:col-span-1">
-            <h3 className="serif-text font-bold text-2xl text-gold-300">
-              {t('hero.title')}
-            </h3>
+            <div className="flex items-center gap-3">
+              <img src={logoImg} alt="Al Hoda Logo" className="h-12 w-auto object-contain" />
+            </div>
             <p className="text-gold-100/70 font-light">{t('footer.tagline')}</p>
           </div>
 

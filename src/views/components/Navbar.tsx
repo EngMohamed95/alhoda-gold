@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAppController, useAuthController } from '../../controllers/appController';
-import { Menu, X, Coins, User as UserIcon } from 'lucide-react';
+import { Menu, X, User as UserIcon } from 'lucide-react';
 import { useState } from 'react';
+import logoImg from '../../logoelhoda.png';
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -23,13 +24,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full border border-gold-500 flex items-center justify-center bg-gradient-to-br from-gold-300 to-gold-600 shadow-lg shadow-gold-500/20">
-                <Coins fill="white" strokeWidth={1} className="text-premium-black" />
-              </div>
-              <span className="serif-text font-bold text-xl tracking-wider text-gold-200">
-                {language === 'en' ? 'Al Hoda' : 'الهدى'}
-              </span>
+            <Link to="/" className="flex items-center gap-3">
+              <img src={logoImg} alt="Al Hoda Logo" className="h-12 md:h-16 w-auto object-contain" />
             </Link>
           </div>
 
@@ -61,8 +57,8 @@ export default function Navbar() {
                 {t('nav.login')}
               </Link>
             )}
-            
-            <button 
+
+            <button
               onClick={toggleLanguage}
               className="px-4 py-2 rounded-full border border-gold-700/50 hover:bg-gold-900/20 text-gold-200 text-xs font-black transition-all"
             >
@@ -71,7 +67,7 @@ export default function Navbar() {
           </div>
 
           <div className="lg:hidden flex items-center gap-4">
-            <button 
+            <button
               onClick={toggleLanguage}
               className="px-3 py-1.5 rounded-full border border-gold-700/50 text-gold-200 text-xs font-bold"
             >
