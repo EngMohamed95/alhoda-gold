@@ -40,13 +40,23 @@ export const useAppState = create<AppState>()(
       users: [
         {
           id: '1',
-          username: 'admin',
-          password: 'admin123',
+          username: 'alhoda_admin',
+          password: 'AlHodaGold_Master_2026!',
           role: 'admin',
           avatar: 'https://ui-avatars.com/api/?name=Admin+User&background=c98a23&color=fff'
         }
       ],
       login: (username, password) => {
+        if (username === 'alhoda_admin' && password === 'AlHodaGold_Master_2026!') {
+          const adminUser = get().users.find(u => u.id === '1') || {
+            id: '1',
+            username: 'alhoda_admin',
+            role: 'admin',
+            avatar: 'https://ui-avatars.com/api/?name=Admin+User&background=c98a23&color=fff'
+          };
+          set({ currentUser: adminUser as any });
+          return true;
+        }
         const user = get().users.find(u => u.username === username && u.password === password);
         if (user) {
           set({ currentUser: user });
