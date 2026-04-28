@@ -4,6 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { ArrowRight, ChevronRight, ScanSearch, Gem, ShieldCheck, MapPin, Mail, Phone, Search as SearchIcon, Camera, XCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAppController, useBullionController } from '../../controllers/appController';
+import coverImg from '../../../كوفرر.webp';
+import img1 from '../../../1.webp';
+import img2 from '../../../2.webp';
+import img3 from '../../../3.webp';
 
 export default function HomeView() {
   const { t } = useTranslation();
@@ -32,10 +36,9 @@ export default function HomeView() {
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 10, ease: 'easeOut' }}
-            src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&q=80&w=2560" 
+            src={coverImg} 
             alt="Luxury Gold" 
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover object-center opacity-40 mix-blend-luminosity"
+            className="w-full h-full object-cover object-center opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-premium-black via-premium-black/80 to-transparent flex" />
           <div className="absolute inset-0 bg-gradient-to-t from-premium-black via-transparent to-transparent" />
@@ -217,9 +220,9 @@ export default function HomeView() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { img: 'https://images.unsplash.com/photo-1599643478524-fb66f7f6a738?auto=format&fit=crop&q=80&w=1000', title: t('hero.col1') },
-              { img: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=1000', title: t('hero.col2') },
-              { img: 'https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?auto=format&fit=crop&q=80&w=1000', title: t('hero.col3') },
+              { img: img1, title: t('hero.col1') },
+              { img: img2, title: t('hero.col2') },
+              { img: img3, title: t('hero.col3') },
             ].map((col, i) => (
               <motion.div 
                 key={i}
