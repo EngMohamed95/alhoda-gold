@@ -25,6 +25,12 @@ export default function Footer() {
             <h4 className="text-sm font-bold uppercase tracking-widest text-gold-200">{t('nav.about')}</h4>
             <ul className="space-y-2 text-gold-100/70 text-sm font-light">
               <li>
+                <Link to="/collection-2026" className="hover:text-gold-300 transition-colors flex items-center gap-2">
+                  <ArrowRight size={14} className={isRtl ? 'rotate-180' : ''} />
+                  {t('nav.collection2026')}
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="hover:text-gold-300 transition-colors flex items-center gap-2">
                   <ArrowRight size={14} className={isRtl ? 'rotate-180' : ''} />
                   {t('about.vision')}
@@ -73,15 +79,28 @@ export default function Footer() {
           {/* Contact */}
           <div className="space-y-4">
             <h4 className="text-sm font-bold uppercase tracking-widest text-gold-200">{t('footer.contact')}</h4>
-            <div className="space-y-3 text-sm font-light">
-              <a href="tel:+201143885630" className="flex items-center gap-3 text-gold-100/70 hover:text-gold-300 transition-colors">
-                <Phone size={18} />
-                <span>{t('footer.call')}</span>
-              </a>
-              <a href="https://wa.me/201143885630" className="flex items-center gap-3 text-gold-100/70 hover:text-gold-300 transition-colors">
-                <Mail size={18} />
-                <span>{t('footer.whatsapp')}</span>
-              </a>
+              <div className="space-y-3 text-sm font-light">
+                <div className="flex items-start gap-3 text-gold-100/70">
+                  <Phone size={18} className="mt-1 flex-shrink-0" />
+                  <div className="flex flex-col gap-1 font-mono">
+                    <a href="tel:+201143885630" className="hover:text-gold-300 transition-colors">011 43885630</a>
+                    <a href="tel:+201006320140" className="hover:text-gold-300 transition-colors">010 06320140</a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 text-gold-100/70">
+                  <Mail size={18} className="mt-1 flex-shrink-0" />
+                  <div className="flex flex-col gap-1 font-mono">
+                    <a href="https://wa.me/201143885630" className="hover:text-gold-300 transition-colors flex items-center gap-2">
+                      <span className="font-sans text-xs">{t('footer.whatsapp')}</span>
+                      <span>(011)</span>
+                    </a>
+                    <a href="https://wa.me/201006320140" className="hover:text-gold-300 transition-colors flex items-center gap-2">
+                      <span className="font-sans text-xs">{t('footer.whatsapp')}</span>
+                      <span>(010)</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
               <div className="flex items-start gap-3 text-gold-100/70">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
                 <span>{t('footer.visit')}</span>

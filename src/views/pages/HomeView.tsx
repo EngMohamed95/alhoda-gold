@@ -390,10 +390,13 @@ export default function HomeView() {
               <h2 className="serif-text text-4xl font-bold text-gold-200 mb-6">{t('contact.title')}</h2>
               <p className="text-gold-100/70 font-light leading-relaxed mb-8">{t('contact.journeyDesc')}</p>
               <div className="space-y-4">
-                <a href="tel:+201143885630" className="flex items-center gap-4 text-gold-200 hover:text-gold-400 transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-gold-900/30 flex items-center justify-center"><Phone size={18} /></div>
-                  <span className="font-mono" dir="ltr">011 43885630</span>
-                </a>
+                <div className="flex items-start gap-4 text-gold-200">
+                  <div className="w-10 h-10 rounded-full bg-gold-900/30 flex items-center justify-center flex-shrink-0"><Phone size={18} /></div>
+                  <div className="flex flex-col gap-1 font-mono" dir="ltr">
+                    <a href="tel:+201143885630" className="hover:text-gold-400 transition-colors">011 43885630</a>
+                    <a href="tel:+201006320140" className="hover:text-gold-400 transition-colors">010 06320140</a>
+                  </div>
+                </div>
                 <div className="flex items-center gap-4 text-gold-200">
                   <div className="w-10 h-10 rounded-full bg-gold-900/30 flex items-center justify-center"><MapPin size={18} /></div>
                   <span>Cairo, Egypt</span>

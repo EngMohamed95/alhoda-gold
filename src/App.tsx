@@ -6,6 +6,7 @@ import Footer from './views/components/Footer';
 import HomeView from './views/pages/HomeView';
 import AboutView from './views/pages/AboutView';
 import ServicesView from './views/pages/ServicesView';
+import Collection2026View from './views/pages/Collection2026View';
 import ContactView from './views/pages/ContactView';
 import SearchView from './views/pages/SearchView';
 import DashboardView from './views/pages/DashboardView';
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="/" element={<HomeView />} />
             <Route path="/about" element={<AboutView />} />
             <Route path="/services" element={<ServicesView />} />
+            <Route path="/collection-2026" element={<Collection2026View />} />
             <Route path="/contact" element={<ContactView />} />
             <Route path="/search" element={<SearchView />} />
             <Route path="/admin" element={isAuthenticated ? <DashboardView /> : <Navigate to="/login" replace />} />
