@@ -125,9 +125,14 @@ const resources = {
         info: "Experience, Trust, and Luxury in the World of Gold.",
         callText: "Call Us Now",
         waText: "Message on WhatsApp",
-        visitText: "Visit Our Headquarters",
+        visitText: "Our Branches",
         startJourney: "Start your journey with gold in confidence",
-        journeyDesc: "Whether you are looking for a special jewelry piece, a luxurious wedding set, a custom design, or a gold bullion for investment, Al Hoda's team is ready to assist you."
+        journeyDesc: "Whether you are looking for a special jewelry piece, a luxurious wedding set, a custom design, or a gold bullion for investment, Al Hoda's team is ready to assist you.",
+        branches: {
+          b1: "Gharbia - Qutour - Old Insurance St., off El-Geish St., before El-Sa'a Square",
+          b2: "Tanta - El-Sagha St. - Harat El-Tayfa (Wholesale Only)",
+          b3: "Cairo - El-Hussein - Khan El-Khalili Mall, 2nd Floor (Wholesale Only)"
+        }
       },
       footer: {
         tagline: "Start your journey with gold in confidence.",
@@ -262,9 +267,14 @@ const resources = {
         info: "شركة الهدى لتجارة الذهب.. خبرة، ثقة، وفخامة في عالم الذهب.",
         callText: "اتصل بنا الآن",
         waText: "راسلنا عبر واتساب",
-        visitText: "زورونا في مقر الشركة",
+        visitText: "فروعنا",
         startJourney: "ابدأ رحلتك مع الذهب بثقة",
-        journeyDesc: "سواء كنت تبحث عن قطعة مجوهرات مميزة، شبكة فاخرة، تصميم خاص، أو سبيكة ذهبية للاستثمار، فريق الهدى جاهز لمساعدتك."
+        journeyDesc: "سواء كنت تبحث عن قطعة مجوهرات مميزة، شبكة فاخرة، تصميم خاص، أو سبيكة ذهبية للاستثمار، فريق الهدى جاهز لمساعدتك.",
+        branches: {
+          b1: "الغربية - قطور - شارع التأمينات القديم المتفرع من شارع الجيش قبل ميدان الساعة",
+          b2: "طنطا - شارع الصاغة - حارة الطايفه (جملة فقط)",
+          b3: "القاهرة - الحسين - مول خان الخليلي الدور الثاني (جملة فقط)"
+        }
       },
       footer: {
         tagline: "ابدأ رحلتك مع الذهب بثقة",

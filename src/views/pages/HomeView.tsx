@@ -391,15 +391,19 @@ export default function HomeView() {
               <p className="text-gold-100/70 font-light leading-relaxed mb-8">{t('contact.journeyDesc')}</p>
               <div className="space-y-4">
                 <div className="flex items-start gap-4 text-gold-200">
-                  <div className="w-10 h-10 rounded-full bg-gold-900/30 flex items-center justify-center flex-shrink-0"><Phone size={18} /></div>
+                  <div className="w-10 h-10 rounded-full bg-gold-900/30 flex items-center justify-center flex-shrink-0 mt-1"><Phone size={18} /></div>
                   <div className="flex flex-col gap-1 font-mono" dir="ltr">
-                    <a href="tel:+201143885630" className="hover:text-gold-400 transition-colors">011 43885630</a>
+                    <a href="tel:+201002223773" className="hover:text-gold-400 transition-colors">010 02223773</a>
                     <a href="tel:+201006320140" className="hover:text-gold-400 transition-colors">010 06320140</a>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 text-gold-200">
-                  <div className="w-10 h-10 rounded-full bg-gold-900/30 flex items-center justify-center"><MapPin size={18} /></div>
-                  <span>Cairo, Egypt</span>
+                <div className="flex items-start gap-4 text-gold-200">
+                  <div className="w-10 h-10 rounded-full bg-gold-900/30 flex items-center justify-center flex-shrink-0 mt-1"><MapPin size={18} /></div>
+                  <ul className="space-y-2 text-sm font-light text-gold-100/80">
+                    <li>{t('contact.branches.b1')}</li>
+                    <li>{t('contact.branches.b2')}</li>
+                    <li>{t('contact.branches.b3')}</li>
+                  </ul>
                 </div>
               </div>
               <Link 
